@@ -1,0 +1,35 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Toy details</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+        <form method ="post"enctype="multipart/form-data">
+            {% csrf_token %}
+			<div class="sign-in-htm">
+                <h2 style="color: beige;">{{msg}}</h2>
+                <div class="group">
+					<label for="pass" class="label">Toy image </label>
+					<input id="pass" type="file" name="tim" class="input">
+				</div>
+				<div class="group">
+					<label for="user" class="label">Toy name</label>
+					<input id="user" type="text"  name="tna"class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Toy price </label>
+					<input id="pass" type="number" name="tpr" class="input" data-type="number">
+				</div>
+                <div class="group">
+					<label for="pass" class="label">Description</label>
+					<input id="pass" type="text" name="des" class="input" data-type="text">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Add">
+				</div>
+			</div>
+		</form>
+        </div>
+	</div>
+</div>

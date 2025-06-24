@@ -1,0 +1,29 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/users.css' %}">
+<table>
+  <caption>Users data </caption>
+  <thead>
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Full name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in users %}
+    <tr>
+      <td>{{m.email}}</td>
+      <td>{{m.psw}}</td>
+      <td>{{m.fname}}</td>
+      <td>{{m.lname}}</td>
+      <td>{{m.gender}}</td>
+      <td><button><a href="{% url 'edit' m.id %}">Edit</a></button></td>
+      <td><button><a href="{% url 'delete' m.id %}">Delete</a></button></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

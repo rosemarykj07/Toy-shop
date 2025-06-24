@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/toy.css' %}">
+ {% if messages %}
+    {% for msg in messages %}
+    <h2 style="color: purple; font-size: 20px;">{{msg}}</h2>
+    {% endfor %}
+  {% endif %}
+
+
+  <main class="page-content">
+    {% for m in toy %}
+  <div class="card" style="background-image: url({{m.timg.url}} ); background-size:cover; width:300px;background-repeat:no-repeat;">
+    <div class="content">
+      <h2 class="title">{{m.tname}}</h2>
+       <h3 class="title">{{m.tprc}}₹</h3>
+      <p class="copy">{{m.des}}</p>
+      <button class="btn"><a href="{% url 'cart' m.id %}">Cart</a></button>
+    </div>
+  </div>
+  {% endfor %}
+  </main>

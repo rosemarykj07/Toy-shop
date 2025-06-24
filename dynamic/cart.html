@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/toy.css' %}">
+ <!-- {% if messages %}
+    {% for msg in messages %}
+    <h2 style="color: purple; font-size: 20px;">{{msg}}</h2>
+    {% endfor %}
+  {% endif %} -->
+<h2 style="color:darkred">{{info}}</h2>
+
+  <main class="page-content">
+    {% for m in cart %}
+  <div class="card" style="background-image: url({{m.product.timg.url}} ); background-size:cover; width:350px;background-repeat:no-repeat;">
+    <div class="content">
+      <h2 class="title">Toy name:{{m.product.tname}}</h2>
+       <h3 class="title"> Toy price{{m.product.tprc}}₹</h3>
+       <h3 class="title">Quantity:{{m.qty}}</h3>
+      <p class="copy">{{m.product.des}}</p>
+      <button><a href="{% url 'cartdelete' m.id %}">Remove</a></button>
+    </div>
+  </div>
+  {% endfor %}
+  </main>
+  <div>
+    <h2 style="color:black">Total Price:{{total}}₹</h2>
+  </div>

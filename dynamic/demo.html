@@ -1,0 +1,11 @@
+def login(request):
+eml=request.POST.get('email')
+psw=request.POST.get('psw')
+obj=reg_tbl.objects.filter(email=eml,psw=psw)
+if obj:
+request.session['ema']=eml
+request.session['psw']=psw
+for i in obj:
+idno=i.id
+request.session['idl']=idno
+return render(request,"home.html")
